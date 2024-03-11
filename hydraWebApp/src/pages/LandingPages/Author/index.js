@@ -2,10 +2,10 @@
 // @mui material components
 import Card from "@mui/material/Card";
 
-// Material Kit 2 React components
+//  React components
 import MKBox from "components/MKBox";
 
-// Material Kit 2 React examples
+//  React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 
 // Author page sections

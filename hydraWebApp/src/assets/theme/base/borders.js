@@ -1,8 +1,8 @@
 
-// Material Kit 2 React Base Styles
+//  React Base Styles
 import colors from "assets/theme/base/colors";
 
-// Material Kit 2 React Helper Functions
+//  React Helper Functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
 const { grey } = colors;

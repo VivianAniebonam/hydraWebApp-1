@@ -4,10 +4,10 @@
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 
-// Material Kit 2 React components
+//  React components
 import MKBox from "components/MKBox";
 
-// Material Kit 2 React examples
+//  React examples
 import DefaultCounterCard from "examples/Cards/CounterCards/DefaultCounterCard";
 
 function Featuring() {

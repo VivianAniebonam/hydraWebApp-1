@@ -1,9 +1,9 @@
 
 
-// Material Kit 2 React base styles
+//  React base styles
 import breakpoints from "assets/theme/base/breakpoints";
 
-// Material Kit 2 React helper functions
+//  React helper functions
 import pxToRem from "assets/theme/functions/pxToRem";
 
 const {
