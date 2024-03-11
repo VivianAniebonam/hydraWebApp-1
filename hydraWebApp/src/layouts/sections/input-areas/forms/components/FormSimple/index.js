@@ -1,17 +1,3 @@
-/**
-=========================================================
-*  React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
 
 import { useState } from "react";
 
@@ -20,11 +6,32 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Switch from "@mui/material/Switch";
 
+//Emailjs
+import emailjs from 'emailjs-com';
+// Initialize EmailJS with your public key
+emailjs.init("2Er9EtsklHHpSoZh0"); 
+
+
 //  React components
 import MKBox from "components/MKBox";
 import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
+
+
+//making function for Emailjs
+const sendEmail = (e) => {
+  e.preventDefault(); // Prevents the default form submission
+
+  emailjs.sendForm('service_jukzha5', 'template_kx4arug',e.target, '2Er9EtsklHHpSoZh0')
+    .then((result) => {
+      console.log("sending mesage is going on");
+      alert('Message sent successfully!');
+    }, (error) => {
+      alert('An error occurred, please try again');
+    });
+};
+
 
 function FormSimple() {
   const [checked, setChecked] = useState(true);
@@ -40,20 +47,20 @@ function FormSimple() {
           </MKTypography>
         </Grid>
         <Grid container item xs={12} lg={7} sx={{ mx: "auto" }}>
-          <MKBox width="100%" component="form" method="post" autoComplete="off">
+          <MKBox width="100%" component="form" method="post" autoComplete="off" onSubmit={sendEmail}>
             <MKBox p={3}>
               <Grid container spacing={3}>
                 <Grid item xs={12} md={6}>
-                  <MKInput variant="standard" label="First Name" fullWidth />
+                  <MKInput variant="standard" name="first_name" label="First Name" fullWidth />
                 </Grid>
                 <Grid item xs={12} md={6}>
-                  <MKInput variant="standard" label="Last Name" fullWidth />
+                  <MKInput variant="standard" name="last_name" label="Last Name" fullWidth />
                 </Grid>
                 <Grid item xs={12}>
-                  <MKInput variant="standard" type="email" label="Email Address" fullWidth />
+                  <MKInput variant="standard" type="email"name="reply_to" label="Email Address" fullWidth />
                 </Grid>
                 <Grid item xs={12}>
-                  <MKInput variant="standard" label="Your Message" multiline fullWidth rows={6} />
+                  <MKInput variant="standard"  name="message" label="Your Message" multiline fullWidth rows={6} />
                 </Grid>
                 <Grid item xs={12} alignItems="center" ml={-1}>
                   <Switch checked={checked} onChange={handleChecked} />

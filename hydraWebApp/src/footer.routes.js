@@ -8,7 +8,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import MKTypography from "components/MKTypography";
 
 // Images
-import logoCT from "assets/images/logoo.jpg";
+import logoCT from "assets/images/logo.ico";
 
 const date = new Date().getFullYear();
 

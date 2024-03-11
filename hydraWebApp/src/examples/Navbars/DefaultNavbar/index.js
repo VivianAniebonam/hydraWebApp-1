@@ -1,6 +1,6 @@
 
 import { Fragment, useState, useEffect } from "react";
-//import logoImage from 'assets/images/logoo.jpg';
+//import logoImage from 'assets/images/logo.ico';
 // react-router components
 import { Link } from "react-router-dom";
 
