@@ -1,28 +1,27 @@
-/*
-=========================================================
-*  React - v2.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
+//CONTACT PAGE
 
 // @mui material components
 import Grid from "@mui/material/Grid";
 
-//  React components
+// for redirecting to another page
+import { useNavigate } from 'react-router-dom';
+
+// React components
 import MKBox from "components/MKBox";
 import MKInput from "components/MKInput";
 import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
-//  React examples
+// Emailjs
+import emailjs from 'emailjs-com';
+
+// React (Ensure useState is imported correctly here)
+import React, { useState } from 'react'; // Corrected import statement
+
+// Initialize EmailJS with your public key
+emailjs.init("2Er9EtsklHHpSoZh0"); 
+
+// React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
 
@@ -33,7 +32,43 @@ import footerRoutes from "footer.routes";
 // Image
 import bgImage from "assets/images/bluesea.jpg";
 
+
 function ContactUs() {
+  const navigate = useNavigate();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm("service_jukzha5", "template_kx4arug", e.target, "2Er9EtsklHHpSoZh0")
+      .then(() => {
+        console.log("sending message is going on");
+        alert("Message sent successfully!");
+        // Redirect to home page
+        navigate('/');    // replaces history.push(target)
+        
+      })
+      .catch(() => {
+        alert("An error occurred, please try again");
+      });
+  };
+ 
+  const [userData, setUserData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    category: '', // Add this to store the selected category
+    // Add other fields as necessary
+  });
+  
+  const changeHandler = (event) => {
+    const { name, value } = event.target;
+    setUserData({
+      ...userData,
+      [name]: value,
+    });
+  };
+
+
   return (
     <>
       <MKBox position="fixed" top="0.5rem" width="100%">
@@ -97,12 +132,22 @@ function ContactUs() {
               <MKTypography variant="body2" color="text" mb={3}>
               For support, general inquiries, or partnership opportunities, please reach out to us at aniebonamvivian1@gmail.com or use our contact form.
               </MKTypography>
-              <MKBox width="100%" component="form" method="post" autoComplete="off">
+              <MKBox width="100%" component="form" method="post" autoComplete="off" onSubmit={sendEmail}>
                 <Grid container spacing={3}>
                   <Grid item xs={12} md={6}>
                     <MKInput
                       variant="standard"
-                      label="Full Name"
+                      name="first_name"
+                      label="First Name"
+                      InputLabelProps={{ shrink: true }}
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={12} md={6}>
+                    <MKInput
+                      variant="standard"
+                      name="last_name"
+                      label="Last Name"
                       InputLabelProps={{ shrink: true }}
                       fullWidth
                     />
@@ -112,14 +157,39 @@ function ContactUs() {
                       type="email"
                       variant="standard"
                       label="Email"
+                      name="reply_to" 
                       InputLabelProps={{ shrink: true }}
                       fullWidth
                     />
                   </Grid>
+                  <Grid item xs={12} md={6}>
+  <MKInput
+    name="category"
+    type="text"
+    label="Category"
+    select
+    SelectProps={{ native: true }}
+    onChange={changeHandler} // Ensure you have a handler function to manage form inputs
+    value={userData.category} // Assuming you're managing form data with a 'userData' state
+    fullWidth
+    InputLabelProps={{ shrink: true }}
+  >
+    <option value="">Select a category</option>
+    <option value="Login Issues">Login Issues</option>
+    <option value="Registration Issues">Registration Issues</option>
+    <option value="Data Display Errors">Data Display Errors</option>
+    <option value="Form Submission Errors">Form Submission Errors</option>
+    <option value="Payment Problems">Payment Problems</option>
+    <option value="Others">Other</option>
+    {/* Add more categories as needed */}
+  </MKInput>
+</Grid>
+                  
                   <Grid item xs={12}>
                     <MKInput
                       variant="standard"
                       label="What can we help you?"
+                      name="message"
                       placeholder="Describe your problem in at least 250 characters"
                       InputLabelProps={{ shrink: true }}
                       multiline
@@ -129,7 +199,7 @@ function ContactUs() {
                   </Grid>
                 </Grid>
                 <Grid container item justifyContent="center" xs={12} mt={5} mb={2}>
-                  <MKButton type="submit" variant="gradient" color="info">
+                  <MKButton type="submit" variant="gradient" color="info" >
                     Send Message
                   </MKButton>
                 </Grid>

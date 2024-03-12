@@ -66,14 +66,17 @@ const routes = [
         collapse: [
           {
             name: "page headers",
-            route: "/sections/page-sections/page-headers",
+            route: "/sections/page-sections/Demonstration",
             component: <PageHeaders />,
           },
           {
             name: "features",
-            route: "/sections/page-sections/features",
+            route: "/sections/page-sections/Videos",
             component: <Features />,
           },
+          { name: "Demostration", href: "https://www.youtube.com/watch?v=Y1fiKGj5H0E" },
+          { name: "Videos", href: "https://www.youtube.com/watch?v=Y1fiKGj5H0E" },
+          
         ],
       },
           

@@ -110,7 +110,7 @@ function Presentation() {
                   Thank you for your support!
                 </MKTypography>
                 <MKTypography variant="body1" color="text">
-                  We do what you can do, but better and effi
+                  We do what you can do, but better and more efficient
                 </MKTypography>
               </Grid>
               <Grid

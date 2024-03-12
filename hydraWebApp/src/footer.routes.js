@@ -40,7 +40,7 @@ export default {
     {
       name: "company",
       items: [
-        { name: "about us", href: "https://www.creative-tim.com/presentation" },
+        { name: "about us", href: "/pages/landing-pages/about-us" },
         { name: "freebies"},
         { name: "premium tools"},
         { name: "blog" },
@@ -49,15 +49,15 @@ export default {
     {
       name: "resources",
       items: [
-        { name: "Demostration"},
-        { name: "Videos"}
+        { name: "Demostration", href: "https://www.youtube.com/watch?v=Y1fiKGj5H0E" },
+        { name: "Videos", href: "https://www.youtube.com/watch?v=Y1fiKGj5H0E" }
         
       ],
     },
     {
       name: "help & support",
       items: [
-        { name: "contact us", href: "https://www.creative-tim.com/contact-us" },
+        { name: "contact us", href: "/pages/landing-pages/contact-us" },
         { name: "knowledge center" },
         { name: "custom development"},
         { name: "FAQ"}

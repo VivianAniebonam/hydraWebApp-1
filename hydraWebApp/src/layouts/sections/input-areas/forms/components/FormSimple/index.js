@@ -24,10 +24,10 @@ const sendEmail = (e) => {
   e.preventDefault(); // Prevents the default form submission
 
   emailjs.sendForm('service_jukzha5', 'template_kx4arug',e.target, '2Er9EtsklHHpSoZh0')
-    .then((result) => {
+    .then(() => {
       console.log("sending mesage is going on");
       alert('Message sent successfully!');
-    }, (error) => {
+    }, () => {
       alert('An error occurred, please try again');
     });
 };
