@@ -42,7 +42,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://www.creative-tim.com"
+                  href="https://Vivian-Aniebonam"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -55,7 +55,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://www.creative-tim.com/presentation"
+                  href="https://Vivian-Aniebonam/presentation"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -68,7 +68,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://www.creative-tim.com/blog"
+                  href="https://Vivian-Aniebonam/blog"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -81,7 +81,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://www.creative-tim.com"
+                  href="https://Vivian-Aniebonam"
                   target="_blank"
                   rel="noreferrer"
                 >

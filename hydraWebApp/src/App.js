@@ -47,6 +47,7 @@ export default function App() {
         <Route path="/" element={<Presentation />} />
         <Route path="*" element={<Navigate to="/" />} />
         <Route path="/signup" element={<SignUp />} />
+      
       </Routes>
     </ThemeProvider>
   );

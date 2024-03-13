@@ -3,7 +3,7 @@
   "version": "2.1.0",
   "private": true,
   "author": "Vivian Aniebonam",
-  "license": "See license in https://www.creative-tim.com/license",
+  "license": "See license in https://Vivian-Aniebonam/license",
   "description": "React version of Hydra software web Application by Vivian",
   "homepage": "https://demos.creative-tim.com/material-kit-react/#/",
   "bugs": {
@@ -26,6 +26,7 @@
     "chroma-js": "2.4.2",
     "emailjs-com": "^3.2.0",
     "flatpickr": "4.6.13",
+    "jwt-decode": "^4.0.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-copy-to-clipboard": "5.1.0",

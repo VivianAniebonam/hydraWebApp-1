@@ -1,8 +1,8 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import 'styles/footer.css'; // Import your CSS file
 // react-router-dom components
 import { Link } from "react-router-dom";
-//or, setError] = useState('');
+import { useNavigate } from "react-router-dom";
 // @mui material components
 import Card from "@mui/material/Card";
 import Switch from "@mui/material/Switch";
@@ -36,24 +36,27 @@ let backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:3000";
 
 function SignInBasic() {
     const [rememberMe, setRememberMe] = useState(false);
+
+    let navigate = useNavigate();
+
     const [visible, setVisible] = useState(false);
+
     const [userData, setUserData] = useState({
-      firstName: "",
-      lastName: "",
-      email: "",
-      username: "",
-      phoneNumber:"",
-      countryCode: "", // Add the countryCode field
-      address: {
-        street: "",
-        city: "",
-        country: "",
-        postalCode: "",
-        state: ""
-      },
-      password: "",
-      confirmPassword: "", // Added confirmPassword field
-    
+        firstName: "",
+        lastName: "",
+        email: "",
+        username: "",
+        phoneNumber: "",
+        countryCode: "", // Add the countryCode field
+        address: {
+            street: "",
+            city: "",
+            country: "",
+            postalCode: "",
+            state: ""
+        },
+        password: "",
+        confirmPassword: "", // Added confirmPassword field
     });
 
     const [passwordMatch, setPasswordMatch] = useState(true); // State to track password match
@@ -63,10 +66,9 @@ function SignInBasic() {
 
     const toggleVisibility = () => setVisible(!visible);
 
-
     const changeHandler = (e) => {
         const { name, value } = e.target;
-    
+
         // Check if the password field is being updated
         if (name === "password") {
             // Check if the password length is less than 6 characters
@@ -78,12 +80,12 @@ function SignInBasic() {
         }
 
         if (name === "countryCode") {
-         setUserData((prev) => ({ 
-              ...prev,
-              [name]: value
+            setUserData((prev) => ({
+                ...prev,
+                [name]: value
             }));
-          } 
-     
+        }
+
         // If the name contains a dot, it indicates a nested property
         if (name.includes(".")) {
             const [parent, child] = name.split(".");
@@ -112,7 +114,7 @@ function SignInBasic() {
                 },
                 body: JSON.stringify(data),
             });
-    
+
             if (!response.ok) {
                 const resData = await response.json();
                 // Check for the duplicate key error
@@ -122,12 +124,12 @@ function SignInBasic() {
                     throw new Error(resData.message || "Unable to create user. Please try again.");
                 }
             }
-            
+
             //setError(''); // Clear any existing error
             return true;
         } catch (error) {
             console.error(error.message);
-           // setError("A user with this username or email already exists."); // Example error message
+            // setError("A user with this username or email already exists."); // Example error message
             return false;
         }
     };
@@ -135,53 +137,65 @@ function SignInBasic() {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
         console.log("onSubmit handler triggered");
-        
+
         // Check if passwords match
         if (userData.password !== userData.confirmPassword) {
             setPasswordMatch(false);
             return;
         }
-         
+
         // Passwords match, continue with form submission
         setPasswordMatch(true);
-        
+
         // Ensure that countryCode is defined and is a string
         if (typeof userData.countryCode !== 'string') {
             console.error("Country code is not defined or not a string");
             return;
         }
-    
+
         // Correctly format the country code and phone number
         const formattedCountryCode = userData.countryCode.startsWith("+") ? userData.countryCode : `+${userData.countryCode}`;
         const phoneNumberFull = `${formattedCountryCode}${userData.phoneNumber}`;
-        console.log(phoneNumberFull,formattedCountryCode);
+        console.log(phoneNumberFull, formattedCountryCode);
         // Prepare the data for submission, including the phoneNumberFull
         const updatedUserData = {
             ...userData,
             phoneNumberFull, // Add this instead of phoneNumber
         };
-        
+
         // Remove properties not needed or expected by the backend
         delete updatedUserData.phoneNumber; // Since we're using phoneNumberFull
         delete updatedUserData.countryCode; // Assuming the backend doesn't need this separately
-    
+
         try {
             const response = await signUpHandler(updatedUserData);
             if (response) {
-                // Handle successful sign-up
+                // Handle successful sign-up alert("Message sent successfully!");
+       
                 console.log("Sign-up successful!");
+                alert("Registeration was Succesful, You can now proceed to LogIn")
+
+                 // Redirect to home page
+             navigate('/');    // replaces history.push(target)
+             
+
+              //  window.alert("Registered User Successfully To Our Database");
+                //Upon successful registration, alerts the user
+                navigate('/users/signin');
                 // Possibly clear the form or redirect the user
             } else {
                 // Handle errors or unsuccessful sign-up
                 console.log("Sign-up failed.");
+
             }
         } catch (error) {
             // Handle any errors that occur during the sign-up process
             console.error("Sign-up failed with error:", error);
+
         }
     };
 
-    
+
     return (
         <>
             <DefaultNavbar routes={routes} action={{ type: "external", label: "Login", color: "info" }} transparent light />
@@ -209,7 +223,7 @@ function SignInBasic() {
                 zIndex={2}
                 bottom="0"
                 width="100%"
-                maxWidth="2000px" // Adjust this to your preferred max width
+                maxWidth="2050px" // Adjust this to your preferred max width
                 sx={{
                     transform: "translate(-50%, -50%)",
                 }}>
@@ -240,8 +254,9 @@ function SignInBasic() {
 
                                 <MKBox pt={4} pb={3} px={3} component="form" role="form" onSubmit={onSubmitHandler}>
                                     {/* Error Message Display */}
-                    {
-                                           } 
+                                    {
+                                        /* You can put error message display code here */
+                                    }
                                     {/* First Name */}
                                     <MKBox mb={2}>
                                         <MKInput name="firstName" type="text" label="First Name" fullWidth onChange={changeHandler} value={userData.firstName} />
@@ -257,20 +272,20 @@ function SignInBasic() {
                                         <MKInput name="email" type="email" label="Email" fullWidth onChange={changeHandler} value={userData.email} />
                                     </MKBox>
 
-                                  {/* Username */}
-<MKBox mb={2}>
-    <MKInput 
-        name="username" 
-        type="text" 
-        label="Username" 
-        fullWidth 
-        onChange={changeHandler} 
-        value={userData.username} 
-        required // Add this attribute to mark the field as required
-        error={userData.username.trim() === ""} // Add error prop to highlight if the field is empty
-        helperText={userData.username.trim() === "" ? "Username is required" : ""} // Display error message if the field is empty
-    />
-</MKBox>
+                                    {/* Username */}
+                                    <MKBox mb={2}>
+                                        <MKInput
+                                            name="username"
+                                            type="text"
+                                            label="Username"
+                                            fullWidth
+                                            onChange={changeHandler}
+                                            value={userData.username}
+                                            required // Add this attribute to mark the field as required
+                                            error={userData.username.trim() === ""} // Add error prop to highlight if the field is empty
+                                            helperText={userData.username.trim() === "" ? "Username is required" : ""} // Display error message if the field is empty
+                                        />
+                                    </MKBox>
 
                                     {/* Country Code and Phone */}
                                     <MKBox mb={2} display="flex" gap={2}>
@@ -295,14 +310,13 @@ function SignInBasic() {
                                             <option value="+33">+33</option>
                                             <option value="+39">+39</option>
                                             <option value="+7">+7</option>
-                                           
                                             {/* Add more country codes as needed */}
                                         </MKInput>
-                                        <MKInput name="phoneNumber" type="text" 
-                                        label="PhoneNumber" fullWidth onChange={changeHandler} value={userData.phoneNumber} />
+                                        <MKInput name="phoneNumber" type="text"
+                                            label="PhoneNumber" fullWidth onChange={changeHandler} value={userData.phoneNumber} />
                                     </MKBox>
-                         {/* Address */}
-                                   <MKBox mb={2}>
+                                    {/* Address */}
+                                    <MKBox mb={2}>
                                         <MKInput name="address.street" type="text" label="Street" fullWidth onChange={changeHandler} value={userData.address.street} />
                                     </MKBox>
                                     <MKBox mb={2}>
@@ -319,26 +333,26 @@ function SignInBasic() {
                                     </MKBox>
 
                                     {/* Password */}
-<MKBox mb={2} position="relative">
-    <MKInput 
-        name="password" 
-        type={visible ? "text" : "password"} 
-        label="Password" 
-        fullWidth 
-        onChange={changeHandler} 
-        value={userData.password} 
-        required // Add this attribute to mark the field as required
-        error={userData.password.length < 6} // Add error prop to highlight if the password is less than 6 characters
-        helperText={userData.password.length < 6 ? "Password must be at least 6 characters" : ""} // Display error message if the password is less than 6 characters
-    />
-    <MKBox position="absolute" top="50%" right="10px" sx={{ transform: "translateY(-50%)" }}>
-        {visible ? (
-            <VisibilityOffIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
-        ) : (
-            <VisibilityIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
-        )}
-    </MKBox>
-</MKBox>
+                                    <MKBox mb={2} position="relative">
+                                        <MKInput
+                                            name="password"
+                                            type={visible ? "text" : "password"}
+                                            label="Password"
+                                            fullWidth
+                                            onChange={changeHandler}
+                                            value={userData.password}
+                                            required // Add this attribute to mark the field as required
+                                            error={userData.password.length < 6} // Add error prop to highlight if the password is less than 6 characters
+                                            helperText={userData.password.length < 6 ? "Password must be at least 6 characters" : ""} // Display error message if the password is less than 6 characters
+                                        />
+                                        <MKBox position="absolute" top="50%" right="10px" sx={{ transform: "translateY(-50%)" }}>
+                                            {visible ? (
+                                                <VisibilityOffIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
+                                            ) : (
+                                                <VisibilityIcon onClick={toggleVisibility} style={{ cursor: "pointer" }} />
+                                            )}
+                                        </MKBox>
+                                    </MKBox>
                                     {/* Confirm Password */}
                                     <MKBox mb={2} position="relative">
                                         <MKInput name="confirmPassword" type={visible ? "text" : "password"} label="Confirm Password" fullWidth onChange={changeHandler} value={userData.confirmPassword} />
@@ -363,16 +377,15 @@ function SignInBasic() {
                                             &nbsp;&nbsp;Remember me
                                         </MKTypography>
                                     </MKBox>
-                                    
-  {/* Form inputs */}
-  {/* Register Button */}
-  <MKBox mt={4} mb={1}>
-    <MKButton variant="gradient" color="info" fullWidth type="submit" onClick={onSubmitHandler}>Register</MKButton>
-  </MKBox>
+
+                                    {/* Register Button */}
+                                    <MKBox mt={4} mb={1}>
+                                        <MKButton variant="gradient" color="info" fullWidth type="submit" onClick={onSubmitHandler}>Register</MKButton>
+                                    </MKBox>
 
                                     <MKBox mt={3} mb={1} textAlign="center">
                                         <MKTypography variant="button" color="text">
-                                            Don&apos;t have an account?{" "}
+                                            Already have an account?{" "}
                                             <MKTypography
                                                 component={Link}
                                                 to="/ges/autpahentication/sign-in"
@@ -395,6 +408,6 @@ function SignInBasic() {
             </MKBox>
         </>
     );
-} 
+}
 
-export default SignInBasic; 
+export default SignInBasic;

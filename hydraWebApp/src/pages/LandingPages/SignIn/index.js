@@ -1,6 +1,8 @@
 
 import { useState } from "react";
-
+//import { authenticate } from "components/auth/auth-helper";
+import {signin} from "store/user-context.js"
+import { useNavigate, useLocation} from "react-router-dom";
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -33,71 +35,46 @@ import bgImage from "assets/images/drink.jpg";
 import { Alert } from "@mui/material";
 
 function SignInBasic() {
-  const backendUrl = 'http://localhost:3000'
-  const [rememberMe, setRememberMe] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  
-    const handleSetRememberMe = () => setRememberMe(!rememberMe);
+   const [rememberMe, setRememberMe] = useState(false);
+  const handleSetRememberMe = () => setRememberMe(!rememberMe);
 
-  const signInHandler = async (data) => {
-    console.log('iiiii', data)
-    try {
-        const response = await fetch(`${backendUrl}/users/signin`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(data),
-        });
+  let navigate = useNavigate();
+  const { state } = useLocation();
+  const { from } = state || { from: { pathname: "/" } };
 
-        if (!response.ok) {
-            const resData = await response.json();
-            // Check for the duplicate key error
-            if (resData.error && resData.error.includes("duplicate key")) {
-                throw new Error("A user with this username or email already exists.");
-            } else {
-                throw new Error(resData.message || "Unable to create user. Please try again.");
-            }
-        }
-        
-        //setError(''); // Clear any existing error
-        console.log('lllll', response)
-        return response.data;
-    } catch (error) {
-        console.error(error.message);
-       // setError("A user with this username or email already exists."); // Example error message
-        return false;
-    }
+  const [errorMsg, setErrorMsg] = useState("");
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+
+       
+       
+//Handles form changes, submission, and displays error messages if sign-in fails.
+const handleFormChange = (event) => {
+  const { name, value } = event.target;
+  console.log('Form change:', name, value); // Add logging to check form change
+  setUser((prevFormData) => ({ ...prevFormData, [name]: value }));
 };
 
-  const handleFormChange = (e) => {
-    setError('')
-    if(e.target.type === 'email') {
-      setEmail(e.target.value)
-    }
+  const handleSignIn = (event) => {
+    event.preventDefault();
+    signin(user.email, user.password)
+    .then(response => {
+      console.log("Response from server:", response);
+        if ( !response.success) {
+            throw new Error("Failed to sign in. Please try again."); // or some appropriate error message
+        }
+        sessionStorage.setItem("userId", response.user.userId);
+        sessionStorage.setItem("authToken", response.token);
+        navigate(from, { replace: true });
+    })    
+    .catch(err => {
+        setErrorMsg(err.message || "An unexpected error occurred. Please try again."); // or some appropriate error message
+        console.error(err);
+    });
+};
 
-    if(e.target.type === 'password') {
-      setPassword(e.target.value)
-    }
-  }
-
-  const handleSignIn = async () => {
-    setError('')
-    if(!email || !password) {
-      setError('email and Password Required')
-      return
-    }
-
-    const user = await signInHandler({
-      email, password
-    })
-    if(!user) {
-      setError('Cannot sign in user, server error')
-      return
-    }
-  }
   return (
     <>
       <DefaultNavbar
@@ -146,6 +123,7 @@ function SignInBasic() {
                 mb={1}
                 textAlign="center"
               >
+                 {errorMsg && <div className="alert alert-danger">{errorMsg}</div>}
                 <MKTypography variant="h4" fontWeight="medium" color="white" mt={1}>
                   Sign in
                 </MKTypography>
@@ -168,13 +146,13 @@ function SignInBasic() {
                 </Grid>
               </MKBox>
               <MKBox pt={4} pb={3} px={3}>
-                {error && <Alert severity="error">{error}</Alert> }
+                {errorMsg && <Alert severity="error">{errorMsg}</Alert> }
                 <MKBox component="form" role="form">
                   <MKBox mb={2}>
-                    <MKInput type="email" label="Email" fullWidth onChange={handleFormChange} />
+                    <MKInput type="email" name="email" label="Email" fullWidth onChange={handleFormChange} />
                   </MKBox>
                   <MKBox mb={2}>
-                    <MKInput type="password" label="Password" fullWidth onChange={handleFormChange} />
+                    <MKInput type="password" name="password" label="Password" fullWidth onChange={handleFormChange} />
                   </MKBox>
                   <MKBox display="flex" alignItems="center" ml={-1}>
                     <Switch checked={rememberMe} onChange={handleSetRememberMe} />

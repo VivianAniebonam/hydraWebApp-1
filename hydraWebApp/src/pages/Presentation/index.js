@@ -49,7 +49,8 @@ function Presentation() {
         width="100%"
         sx={{
           backgroundImage: `url(${bgImage})`,
-          backgroundSize: "cover",
+          backgroundSize: "",
+          //backgroundSize: "cover",
           backgroundPosition: "top",
           display: "grid",
           placeItems: "center",
@@ -84,18 +85,18 @@ function Presentation() {
       </MKBox>
       <Card
         sx={{
-          p: 2,
+          p:12 ,
           mx: { xs: 2, lg: 3 },
           mt: -8,
           mb: 4,
           backgroundColor: ({ palette: { white }, functions: { rgba } }) => rgba(white.main, 0.8),
-          backdropFilter: "saturate(200%) blur(30px)",
+          backdropFilter: "saturate(200%) blur(3px)",
           boxShadow: ({ boxShadows: { xxl } }) => xxl,
         }}
       >
         <Counters />
         <Information />
-        <DesignBlocks />
+        <DesignBlocks style={{ padding: 0 }} />
         
         <Container sx={{ mt: 6 }}>
           <BuiltByDevelopers />
@@ -123,7 +124,7 @@ function Presentation() {
               >
                 <MKSocialButton
                   component="a"
-                  href="https://twitter.com/intent/tweet?text=Check%20Material%20Design%20System%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23mui5&amp;url=https%3A%2F%2Fwww.creative-tim.com%2Fproduct%2Fmaterial-kit-react"
+                  href="https://twitter.com/intent/tweet?text=Check%20Material%20Design%20System%20made%20by%20%40CreativeTim%20%23webdesign%20%23designsystem%20%23mui5&amp;url=https%3A%2F%2FVivian-Aniebonam%2Fproduct%2Fmaterial-kit-react"
                   target="_blank"
                   color="twitter"
                   sx={{ mr: 1 }}
@@ -133,7 +134,7 @@ function Presentation() {
                 </MKSocialButton>
                 <MKSocialButton
                   component="a"
-                  href="https://www.facebook.com/sharer/sharer.php?u=https://www.creative-tim.com/product/material-kit-react"
+                  href="https://www.facebook.com/sharer/sharer.php?u=https://Vivian-Aniebonam/product/material-kit-react"
                   target="_blank"
                   color="facebook"
                   sx={{ mr: 1 }}
@@ -143,7 +144,7 @@ function Presentation() {
                 </MKSocialButton>
                 <MKSocialButton
                   component="a"
-                  href="https://www.pinterest.com/pin/create/button/?url=https://www.creative-tim.com/product/material-kit-react"
+                  href="https://www.pinterest.com/pin/create/button/?url=https://Vivian-Aniebonam/product/material-kit-react"
                   target="_blank"
                   color="pinterest"
                 >

@@ -3,10 +3,10 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Product Page: https://Vivian-Aniebonam/product/material-kit-react
+* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
 
-Coded by www.creative-tim.com
+Coded by Vivian-Aniebonam
 
  =========================================================
 
@@ -105,14 +105,14 @@ function CenteredFooter({ company, links, socials, light }) {
 
 // Setting default values for the props of CenteredFooter
 CenteredFooter.defaultProps = {
-  company: { href: "https://www.creative-tim.com/", name: "Creative Tim" },
+  company: { href: "https://Vivian-Aniebonam/", name: "Creative Tim" },
   links: [
-    { href: "https://www.creative-tim.com/", name: "Company" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/presentation", name: "Team" },
-    { href: "https://www.creative-tim.com/templates/react", name: "Products" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
-    { href: "https://www.creative-tim.com/license", name: "License" },
+    { href: "https://Vivian-Aniebonam/", name: "Company" },
+    { href: "https://Vivian-Aniebonam/presentation", name: "About Us" },
+    { href: "https://Vivian-Aniebonam/presentation", name: "Team" },
+    { href: "https://Vivian-Aniebonam/templates/react", name: "Products" },
+    { href: "https://Vivian-Aniebonam/blog", name: "Blog" },
+    { href: "https://Vivian-Aniebonam/license", name: "License" },
   ],
   socials: [
     { icon: <FacebookIcon fontSize="small" />, link: "https://www.facebook.com/CreativeTim/" },

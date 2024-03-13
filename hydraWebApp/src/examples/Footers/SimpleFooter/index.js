@@ -95,8 +95,8 @@ SimpleFooter.defaultProps = {
   company: {  name: "Vivian Aniebonam" },
   links: [
     {  name: "Vivian Aniebonam" },
-    { href: "https://www.creative-tim.com/presentation", name: "About Us" },
-    { href: "https://www.creative-tim.com/blog", name: "Blog" },
+    { href: "https://Vivian-Aniebonam/presentation", name: "About Us" },
+    { href: "https://Vivian-Aniebonam/blog", name: "Blog" },
     
   ],
   light: false,

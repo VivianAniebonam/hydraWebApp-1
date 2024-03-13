@@ -3,10 +3,10 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/soft-ui-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Product Page: https://Vivian-Aniebonam/product/soft-ui-dashboard-pro-react
+* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
 
-Coded by www.creative-tim.com
+Coded by Vivian-Aniebonam
 
 =========================================================
 

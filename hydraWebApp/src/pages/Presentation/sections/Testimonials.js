@@ -3,10 +3,10 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-kit-react
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Product Page: https://Vivian-Aniebonam/product/material-kit-react
+* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
 
-Coded by www.creative-tim.com
+Coded by Vivian-Aniebonam
 
  =========================================================
 
@@ -29,19 +29,19 @@ import DefaultReviewCard from "examples/Cards/ReviewCards/DefaultReviewCard";
 
 function Information() {
   return (
-    <MKBox component="section" py={12}>
+    <MKBox component="section" py={12}  pt={0}>
       <Container>
         <Grid
           container
           item
           xs={12}
-          lg={6}
+          lg={7}
           justifyContent="center"
           sx={{ mx: "auto", textAlign: "center" }}
         >
           <MKTypography variant="h2">Trusted by over {"  "}</MKTypography>
           <MKTypography variant="h2" color="info" textGradient mb={2}>
-            1,679,477+ Users
+          {"  "} 1,679,477+ Users
           </MKTypography>
           <MKTypography variant="body1" color="text" mb={2}>
   Health enthusiasts, fitness startups, educational institutions, and wellness organizations are embracing Hydra for its innovative hydration tracking and reminder system.
