@@ -15,7 +15,7 @@ import ReportsImage from "assets/images/report.webp"
         {
           image: signInImage, // Update the path as needed
           name: "SignIn/Login",
-          route: "/signup",
+          route: "/ges/autpahentication/sign-in",
           //route: "<Your desired route for SignIn/Login>",
         },
         {

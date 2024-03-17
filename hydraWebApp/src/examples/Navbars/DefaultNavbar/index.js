@@ -38,7 +38,6 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
   const [arrowRef, setArrowRef] = useState(null);
   const [mobileNavbar, setMobileNavbar] = useState(false);
   const [mobileView, setMobileView] = useState(false);
-
   const openMobileNavbar = () => setMobileNavbar(!mobileNavbar);
 
   useEffect(() => {
@@ -66,6 +65,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
     return () => window.removeEventListener("resize", displayMobileNavbar);
   }, []);
 
+  
   const renderNavbarItems = routes.map(({ name, icon, href, route, collapse }) => (
     <DefaultNavbarDropdown
       key={name}
@@ -89,7 +89,7 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
   // Render the routes on the dropdown menu
   const renderRoutes = routes.map(({ name, collapse, columns, rowsPerColumn }) => {
     let template;
-
+  
     // Render the dropdown menu that should be display as columns
     if (collapse && columns && name === dropdownName) {
       const calculateColumns = collapse.reduce((resultArray, item, index) => {
@@ -474,39 +474,54 @@ function DefaultNavbar({ brand, routes, transparent, light, action, sticky, rela
             {renderNavbarItems}
           </MKBox>
           <MKBox ml={{ xs: "auto", lg: 0 }}>
-            {action &&
-              (action.type === "internal" ? (
-                <MKButton
-                  component={Link}
-                  to={action.route}
-                  variant={
-                    action.color === "white" || action.color === "default"
-                      ? "contained"
-                      : "gradient"
-                  }
-                  color={action.color ? action.color : "info"}
-                  size="small"
-                >
-                  {action.label}
-                </MKButton>
-              ) : (
-                <MKButton
-                  component="a"
-                  href={action.route}
-                  target="_blank"
-                  rel="noreferrer"
-                  variant={
-                    action.color === "white" || action.color === "default"
-                      ? "contained"
-                      : "gradient"
-                  }
-                  color={action.color ? action.color : "info"}
-                  size="small"
-                >
-                  {action.label}
-                </MKButton>
-              ))}
-          </MKBox>
+        {action &&
+          (action.type === "internal" ? (
+          <MKButton
+              component={Link}
+              to={action.route}
+              variant={
+              action.color === "white" || action.color === "default"
+                  ? "contained"
+                  : "gradient"
+              }
+              color={action.color ? action.color : "info"}
+              size="small"
+          >
+              {action.label}
+          </MKButton>
+          ) : action.label === 'Login' ? (
+          <MKButton
+              component="a"
+              href={action.route}
+              target="_blank"
+              rel="noreferrer"
+              variant={
+              action.color === "white" || action.color === "default"
+                  ? "contained"
+                  : "gradient"
+              }
+              color={action.color ? action.color : "info"}
+              size="small"
+          >
+              {action.label}
+          </MKButton>
+          ) : (
+          <MKButton
+              component="a"
+              onClick={() => action.handleLogout()}
+              variant={
+              action.color === "white" || action.color === "default"
+                  ? "contained"
+                  : "gradient"
+              }
+              color={action.color ? action.color : "info"}
+              size="small"
+          >
+              {action.label}
+          </MKButton>
+          )
+  )}
+</MKBox>
           <MKBox
             display={{ xs: "inline-block", lg: "none" }}
             lineHeight={0}
@@ -543,7 +558,7 @@ DefaultNavbar.defaultProps = {
   sticky: false,
   relative: false,
   center: false,
-};
+  };
 
 // Typechecking props for the DefaultNavbar
 DefaultNavbar.propTypes = {
@@ -551,7 +566,7 @@ DefaultNavbar.propTypes = {
   routes: PropTypes.arrayOf(PropTypes.shape).isRequired,
   transparent: PropTypes.bool,
   light: PropTypes.bool,
-  action: PropTypes.oneOfType([
+    action: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.shape({
       type: PropTypes.oneOf(["external", "internal"]).isRequired,

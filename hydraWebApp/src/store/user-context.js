@@ -99,7 +99,7 @@ const signin = async (email, password) => {
   //GET USER BY ID
   const getByUserId = async (userId, token) => {
     try {
-      let response = await fetch(backendUrl + `/getByUserId/${userId}`, {
+      let response = await fetch(backendUrl + `/get/${userId}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

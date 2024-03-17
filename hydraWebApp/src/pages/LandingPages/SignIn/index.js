@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 //import { authenticate } from "components/auth/auth-helper";
 import {signin} from "store/user-context.js"
@@ -65,8 +64,11 @@ const handleFormChange = (event) => {
         if ( !response.success) {
             throw new Error("Failed to sign in. Please try again."); // or some appropriate error message
         }
-        sessionStorage.setItem("userId", response.user.userId);
+        sessionStorage.setItem("userId", response.user.id);
         sessionStorage.setItem("authToken", response.token);
+        sessionStorage.setItem("username", response.user.username);
+        
+        
         navigate(from, { replace: true });
     })    
     .catch(err => {
@@ -81,7 +83,7 @@ const handleFormChange = (event) => {
         routes={routes}
         action={{
           type: "external",
-          route: "/signup",
+          route: "/ges/autpahentication/sign-in",
           label: "Login",
           color: "info",
         }}

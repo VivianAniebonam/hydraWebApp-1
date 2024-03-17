@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 
 // @mui material components
 import Container from "@mui/material/Container";
@@ -12,15 +13,13 @@ import MKSocialButton from "components/MKSocialButton";
 //  React examples
 import DefaultNavbar from "examples/Navbars/DefaultNavbar";
 import DefaultFooter from "examples/Footers/DefaultFooter";
-
-
+import PersonIcon from '@mui/icons-material/Person';
 // Presentation page sections
 import Counters from "pages/Presentation/sections/Counters";
 import Information from "pages/Presentation/sections/Information";
 import DesignBlocks from "pages/Presentation/sections/DesignBlocks";
 import Testimonials from "pages/Presentation/sections/Testimonials";
 import Download from "pages/Presentation/sections/Download";
-
 // Presentation page components
 import BuiltByDevelopers from "pages/Presentation/components/BuiltByDevelopers";
 
@@ -32,16 +31,65 @@ import footerRoutes from "footer.routes";
 import bgImage from "assets/images/bg9.jpg";
 
 function Presentation() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const token = sessionStorage.getItem("authToken"); 
+    const userId = sessionStorage.getItem("userId"); 
+    const username = sessionStorage.getItem("username");
+
+  if (token && userId){
+    setIsLoggedIn(true);
+    console.log(isLoggedIn);
+    routes.push({
+      name: username,
+      icon:<PersonIcon />,
+      collapse: [
+        {
+          name: "Dashboard",
+          icon: "<DashboardIcon />", // Use the appropriate icon
+          href: "/dashboard",
+        },
+        {
+          name: "Profile",
+          icon: "<AccountCircleIcon />", // Use the appropriate icon
+          href: "/pages/landing-pages/author",
+        },
+        {
+          name: "Logout",
+          icon: "<ExitToAppIcon />", // Use the appropriate icon
+          href: "ges/autpahentication/sign-in",  // Function to handle logout action
+        },
+        
+      ],
+    },)
+  }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("authToken")
+    sessionStorage.removeItem("userId")
+    sessionStorage.removeItem("username")
+    setIsLoggedIn(false);
+    console.log("HANDLE LOG OUT")
+   }
   return (
     <>
-      <DefaultNavbar
+   <DefaultNavbar
         routes={routes}
-        action={{
+        action={isLoggedIn ? {
           type: "external",
-          route: "/signup",
+          handleLogout: handleLogout,
+         // route: "/",
+          label: "Log Out",          
+          color: "info",
+        } :{
+          type: "external",
+          route: "/ges/autpahentication/sign-in",
           label: "Login",          
           color: "info",
         }}
+
         sticky
       />
       <MKBox

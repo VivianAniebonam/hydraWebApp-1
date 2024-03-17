@@ -100,6 +100,18 @@ const routes = [
     icon: <GitHubIcon />,
     href: "https://github.com/Vivian247/hydraWebApp",
   },
+  // {
+  //   name: "Profile",
+  //   icon: <Icon>article</Icon>,
+  //   collapse: [
+  //     {
+  //       name: "Hydra Mannual",
+  //       description: "All about overview, quick start, and contents",
+  //       href: "https://Vivian-Aniebonam/learning-lab/react/quick-start/material-kit/",
+  //     },
+      
+  //   ],
+  // },
 ];
 
 export default routes;

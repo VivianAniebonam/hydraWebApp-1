@@ -12,91 +12,123 @@ Coded by Vivian-Aniebonam
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
-
-// @mui material components
+import React, { useState, useEffect } from "react";
+// MUI components
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
 import Icon from "@mui/material/Icon";
-
-//  React components
+// Custom components
 import MKBox from "components/MKBox";
 import MKAvatar from "components/MKAvatar";
-import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
-
-// Images
+import MKButton from "components/MKButton";
+// Assets
 import profilePicture from "assets/images/bruce-mars.jpg";
+// Define your API URI
+const API_URI = process.env.REACT_APP_BACKEND_URL || "http://localhost:3000";
 
 function Profile() {
+  // State for form fields
+  const [userId, setuserId] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  
+  
+
+  useEffect(() => {
+    // Simulate fetching user data - replace this with your actual fetch request
+    fetch(`${API_URI}${userId}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization header might be needed if your API requires authentication
+        'Authorization': `Bearer ${sessionStorage.getItem('authToken')}`,
+      },
+    })
+    .then(response => response.json())
+    .then(data => {
+      setFirstName(data.firstName);
+      setLastName(data.lastName);
+      setEmail(data.email);
+      setuserId(data.userId);
+    })
+    .catch(error => {
+      console.error('Error fetching user data:', error);
+    });
+  }, []);
+
+  // Placeholder function for future implementation
+  //const handleSave = () => {
+    // Implement save functionality here
+    //console.log({ firstName, lastName, email });
+    // Typically, you would send a PUT or POST request to your backend to update the user data
+  //};
+
   return (
     <MKBox component="section" py={{ xs: 6, sm: 12 }}>
       <Container>
         <Grid container item xs={12} justifyContent="center" mx="auto">
           <MKBox mt={{ xs: -16, md: -20 }} textAlign="center">
-            <MKAvatar src={profilePicture} alt="Burce Mars" size="xxl" shadow="xl" />
+            <MKAvatar src={profilePicture} alt="Bruce Mars" size="xxl" shadow="xl" />
           </MKBox>
           <Grid container justifyContent="center" py={6}>
             <Grid item xs={12} md={7} mx={{ xs: "auto", sm: 6, md: 1 }}>
-              <MKBox display="flex" justifyContent="space-between" alignItems="center" mb={1}>
-                <MKTypography variant="h3">Michael Roven</MKTypography>
+              <MKBox display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+              <MKTypography variant="h3">Michael Roven</MKTypography>
+                <MKTypography variant="h3">{`${firstName} ${lastName}`}</MKTypography>
                 <MKButton variant="outlined" color="info" size="small">
-                  Follow
+                  Edit
                 </MKButton>
               </MKBox>
-              <Grid container spacing={3} mb={3}>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    323&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Posts
-                  </MKTypography>
-                </Grid>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    3.5k&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Followers
-                  </MKTypography>
-                </Grid>
-                <Grid item>
-                  <MKTypography component="span" variant="body2" fontWeight="bold">
-                    260&nbsp;
-                  </MKTypography>
-                  <MKTypography component="span" variant="body2" color="text">
-                    Following
-                  </MKTypography>
-                </Grid>
-              </Grid>
-              <MKTypography variant="body1" fontWeight="light" color="text">
-                Decisions: If you can&apos;t decide, the answer is no. If two equally difficult
-                paths, choose the one more painful in the short term (pain avoidance is creating an
-                illusion of equality). Choose the path that leaves you more equanimous. <br />
-                <MKTypography
-                  component="a"
-                  href="#"
-                  variant="body1"
-                  fontWeight="light"
-                  color="info"
-                  mt={3}
-                  sx={{
-                    width: "max-content",
-                    display: "flex",
-                    alignItems: "center",
-
-                    "& .material-icons-round": {
-                      transform: `translateX(3px)`,
-                      transition: "transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1.3)",
-                    },
-
-                    "&:hover .material-icons-round, &:focus .material-icons-round": {
-                      transform: `translateX(6px)`,
-                    },
-                  }}
-                >
-                  More about me <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
-                </MKTypography>
+              <form>
+                <TextField
+                  label="First Name"
+                  variant="outlined"
+                  fullWidth
+                  margin="normal"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <TextField
+                  label="Last Name"
+                  variant="outlined"
+                  fullWidth
+                  margin="normal"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+                <TextField
+                  label="Email Address"
+                  variant="outlined"
+                  fullWidth
+                  margin="normal"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </form>
+              <MKTypography
+                component="a"
+                href="#"
+                variant="body1"
+                fontWeight="light"
+                color="info"
+                mt={3}
+                sx={{
+                  width: "max-content",
+                  display: "flex",
+                  alignItems: "center",
+                  "& .material-icons-round": {
+                    transform: `translateX(3px)`,
+                    transition: "transform 0.2s cubic-bezier(0.34, 1.61, 0.7, 1.3)",
+                  },
+                  "&:hover .material-icons-round, &:focus .material-icons-round": {
+                    transform: `translateX(6px)`,
+                  },
+                }}
+              >
+                More about me <Icon sx={{ fontWeight: "bold" }}>arrow_forward</Icon>
               </MKTypography>
             </Grid>
           </Grid>
