@@ -48,12 +48,12 @@ function Presentation() {
         {
           name: "Dashboard",
           icon: "<DashboardIcon />", // Use the appropriate icon
-          href: "/dashboard",
+          href: "/pages/landing-pages/author",
         },
         {
-          name: "Profile",
+          name: "My Profile",
           icon: "<AccountCircleIcon />", // Use the appropriate icon
-          href: "/pages/landing-pages/author",
+          href: "/profile",
         },
         {
           name: "Logout",

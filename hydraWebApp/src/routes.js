@@ -41,7 +41,7 @@ const routes = [
             route: "/pages/landing-pages/author",
             component: <Author />,
           },
-        ],
+          ],
       },
       {
         name: "account",

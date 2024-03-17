@@ -21,6 +21,11 @@ export default [
   },
   {
     image: `${imagesPrefix}/author.jpg`,
+    name: "Profile Page",
+    route: "/profile",
+  },
+  {
+    image: `${imagesPrefix}/author.jpg`,
     name: "Author Page",
     route: "/pages/landing-pages/author",
   },

@@ -13,7 +13,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import theme from "assets/theme";
 import Presentation from "layouts/pages/presentation";
 import SignUp from './pages/LandingPages/SignIn/signup';
-
+import Profile from './pages/Profile'
 //  React routes
 import routes from "routes";
 
@@ -39,16 +39,16 @@ export default function App() {
       return null;
     });
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Routes>
-        {getRoutes(routes)}
-        <Route path="/" element={<Presentation />} />
-        <Route path="*" element={<Navigate to="/" />} />
-        <Route path="/signup" element={<SignUp />} />
-      
-      </Routes>
-    </ThemeProvider>
-  );
-}
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Routes>
+          {getRoutes(routes)}
+          <Route path="/" element={<Presentation />} />
+          <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/profile" element={<Profile />} />
+        </Routes>
+      </ThemeProvider>
+    );
+  }

@@ -24,7 +24,7 @@ function Footer() {
             mb={{ xs: 3, lg: 0 }}
           >
             <MKTypography variant="h6" textTransform="uppercase" mb={{ xs: 2, lg: 3 }}>
-              Material Design
+              Hydra Web Application
             </MKTypography>
             <Stack
               component="ul"
@@ -42,7 +42,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://Vivian-Aniebonam"
+                  href="/presentation"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -55,7 +55,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://Vivian-Aniebonam/presentation"
+                  href="/pages/landing-pages/about-us"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -68,7 +68,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://Vivian-Aniebonam/blog"
+                  href="https://researchgrips.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -81,7 +81,7 @@ function Footer() {
                   fontWeight="regular"
                   opacity={0.8}
                   component={Link}
-                  href="https://Vivian-Aniebonam"
+                  href="https://researchgrips.com/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -90,14 +90,12 @@ function Footer() {
               </MKBox>
             </Stack>
             <MKTypography variant="button" opacity={0.8}>
-              Copyright © <script>document.write(new Date().getFullYear())</script>2021 Material
-              Design by Creative Tim.
+              Copyright © <script>document.write(new Date().getFullYear())</script>2024 Hydra Web Application Designed by Aniebonam Vivian
             </MKTypography>
           </Grid>
           <Grid item xs={12} lg={6} ml="auto" textAlign={{ xs: "center", lg: "right" }}>
             <MKTypography variant="body1" fontWeight="bold" mb={6} sx={{ fontSize: "1.125rem" }}>
-              The reward for getting on the stage is fame. The price of fame is you can&apos;t get
-              off the stage.
+            Drinking water is like washing out your insides. Keep them clean!
             </MKTypography>
             <MKTypography
               component={Link}
