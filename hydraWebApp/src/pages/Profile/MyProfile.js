@@ -7,6 +7,7 @@ import TextField from "@mui/material/TextField";
 import Icon from "@mui/material/Icon";
 // Custom components
 import MKBox from "components/MKBox";
+import { Link } from 'react-router-dom'; // Import Link
 import MKAvatar from "components/MKAvatar";
 import MKTypography from "components/MKTypography";
 import MKButton from "components/MKButton";
@@ -78,12 +79,17 @@ function MyProfile() {
           <Grid container justifyContent="center" py={6}>
             <Grid item xs={12} md={7} mx={{ xs: "auto", sm: 6, md: 1 }}>
               <MKBox display="flex" justifyContent="space-between" alignItems="center" mb={3}>
+              <Link to="/pages/landing-pages/author" style={{ textDecoration: 'none' }}>
+                  <MKButton variant="outlined" color="info" size="small">
+                    <Icon sx={{ fontWeight: "bold" }}>arrow_backward</Icon> Dashboard
+                  </MKButton>
+                </Link>
                 <MKTypography variant="h3">Michael Roven</MKTypography>
                 <MKTypography variant="h3">{`${firstName} ${lastName}`}</MKTypography>
                 <MKButton variant="outlined" color="info" size="small">
                   Edit
                 </MKButton>
-              </MKBox>
+               </MKBox>
               <form>
                 <TextField
                   label="First Name"

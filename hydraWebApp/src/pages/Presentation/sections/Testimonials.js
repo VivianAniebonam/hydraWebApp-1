@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -61,7 +61,7 @@ function Information() {
               color="info"
               name="Shailesh Kushwaha"
               date="1 week ago"
-              review="I found solution to all my design needs from Creative Tim. I use them as a freelancer in my hobby projects for fun! And its really affordable, very humble guys !!!"
+              review="I found solution to all my design needs from Vivian Aniebonam. I use them as a freelancer in my hobby projects for fun! And its really affordable, very humble guys !!!"
               rating={5}
             />
           </Grid>

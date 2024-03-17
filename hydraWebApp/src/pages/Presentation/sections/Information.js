@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -55,7 +55,7 @@ function Information() {
                 description="Discover how easy it is to keep track of your water intake and stay hydrated throughout the day with Hydra."
                 action={{
                   type: "internal",
-                  route: "/features/hydration-tracking", // Adjust the route to where users can learn more about the feature
+                  route: "/sections/page-sections/Videos", // Adjust the route to where users can learn more about the feature
                   label: "Explore Features",
                 }}
               />

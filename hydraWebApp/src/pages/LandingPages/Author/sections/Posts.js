@@ -23,7 +23,7 @@ function Places() {
       <Container>
         <Grid container item xs={12} lg={6}>
           <MKTypography variant="h3" mb={6}>
-            Check my latest blogposts
+            Create Hydration Alert
           </MKTypography>
         </Grid>
         <Grid container spacing={3}>

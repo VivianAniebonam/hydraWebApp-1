@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -25,9 +25,9 @@ import MKTypography from "components/MKTypography";
 import HorizontalTeamCard from "examples/Cards/TeamCards/HorizontalTeamCard";
 
 // Images
-import team1 from "assets/images/team-5.jpg";
-import team2 from "assets/images/bruce-mars.jpg";
-import team3 from "assets/images/ivana-squares.jpg";
+import team1 from "assets/images/Screenshot 2024-03-17 162614.png";
+import team2 from "assets/images/imresizer-1710707467200.jpg";
+import team3 from "assets/images/Anas2.jpg";
 import team4 from "assets/images/ivana-square.jpg";
 
 function Team() {
@@ -48,8 +48,7 @@ function Team() {
               The Executive Team
             </MKTypography>
             <MKTypography variant="body2" color="white" opacity={0.8}>
-              There&apos;s nothing I really wanted to do in life that I wasn&apos;t able to get good
-              at. That&apos;s my skill.
+            At Hydra, our collective strength lies in our unwavering team spirit. Together, we navigate challenges and innovate solutions, driven by a shared commitment to enhancing health and wellness for all.
             </MKTypography>
           </Grid>
         </Grid>
@@ -58,9 +57,9 @@ function Team() {
             <MKBox mb={1}>
               <HorizontalTeamCard
                 image={team1}
-                name="Emma Roberts"
-                position={{ color: "info", label: "UI Designer" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                name="Vivian Aniebonam"
+                position={{ color: "info", label: "Frontend Developer" }}
+                description= "As a Registered Nurse, Lecturer, and Health Informatician, I blend healthcare expertise with education and technology to improve patient care."
               />
             </MKBox>
           </Grid>
@@ -68,9 +67,9 @@ function Team() {
             <MKBox mb={1}>
               <HorizontalTeamCard
                 image={team2}
-                name="William Pearce"
-                position={{ color: "info", label: "Boss" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                name="Glenn"
+                position={{ color: "info", label: "UI Designer" }}
+                description="Write a brief intro. about yourself>>"
               />
             </MKBox>
           </Grid>
@@ -78,9 +77,9 @@ function Team() {
             <MKBox mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
                 image={team3}
-                name="Ivana Flow"
-                position={{ color: "info", label: "Athlete" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                name="Anasthesia"
+                position={{ color: "info", label: "Database" }}
+                description="Write a brief intro. about yourself>>"
               />
             </MKBox>
           </Grid>
@@ -88,9 +87,9 @@ function Team() {
             <MKBox mb={{ xs: 1, lg: 0 }}>
               <HorizontalTeamCard
                 image={team4}
-                name="Marquez Garcia"
-                position={{ color: "info", label: "JS Developer" }}
-                description="Artist is a term applied to a person who engages in an activity deemed to be an art."
+                name="Mayvis"
+                position={{ color: "info", label: "backend Developer" }}
+                description="Write a brief intro. about yourself>>"
               />
             </MKBox>
           </Grid>

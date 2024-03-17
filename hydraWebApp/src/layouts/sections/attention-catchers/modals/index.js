@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -15,7 +15,7 @@ Coded by Vivian-Aniebonam
 
 // Sections components
 import BaseLayout from "layouts/sections/components/BaseLayout";
-import View from "layouts/sections/components/View";
+import  from "layouts/sections/components/View";
 
 // Modals page components
 import SimpleModal from "layouts/sections/attention-catchers/modals/components/SimpleModal";

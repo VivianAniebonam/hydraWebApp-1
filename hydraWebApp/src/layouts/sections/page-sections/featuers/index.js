@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -32,7 +32,7 @@ function Features() {
         { label: "Features" },
       ]}
     >
-      <View title="Features 1" code={featuresOneCode}>
+      <View title="Features " code={featuresOneCode}>
         <FeaturesOne />
       </View>
     </BaseLayout>

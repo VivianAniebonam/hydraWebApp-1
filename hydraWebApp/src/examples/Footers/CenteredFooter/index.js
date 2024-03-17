@@ -3,8 +3,8 @@
 *  React - v2.1.0
 =========================================================
 
-* Product Page: https://Vivian-Aniebonam/product/material-kit-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 
@@ -33,9 +33,9 @@ import MKBox from "components/MKBox";
 import MKTypography from "components/MKTypography";
 
 function CenteredFooter({ company, links, socials, light }) {
-  const { href, name } = company;
+  const { href, name= "Vivian Aniebonam"} = company;
 
-  const year = new Date().getFullYear();
+  const year = 2024 || new Date().getFullYear();
 
   const renderLinks = links.map((link) => (
     <MKTypography
@@ -84,7 +84,7 @@ function CenteredFooter({ company, links, socials, light }) {
         </Grid>
         <Grid item xs={12} lg={8} sx={{ textAlign: "center" }}>
           <MKTypography variant="body2" color={light ? "white" : "secondary"}>
-            Copyright &copy; {year} Material by{" "}
+            Copyright &copy; {year} Hydral by{" "}
             <MKTypography
               component={Link}
               href={href}
@@ -107,28 +107,28 @@ function CenteredFooter({ company, links, socials, light }) {
 CenteredFooter.defaultProps = {
   company: { href: "https://Vivian-Aniebonam/", name: "Creative Tim" },
   links: [
-    { href: "https://Vivian-Aniebonam/", name: "Company" },
-    { href: "https://Vivian-Aniebonam/presentation", name: "About Us" },
-    { href: "https://Vivian-Aniebonam/presentation", name: "Team" },
-    { href: "https://Vivian-Aniebonam/templates/react", name: "Products" },
-    { href: "https://Vivian-Aniebonam/blog", name: "Blog" },
+    { href: "https://researchgrips.com/", name: "Company" },
+    { href: "/pages/landing-pages/about-us", name: "About Us" },
+    { href: "/pages/landing-pages/about-us", name: "Team" },
+    { href: "https://researchgrips.com/", name: "Products" },
+    { href: "https://researchgrips.com/", name: "Blog" },
     { href: "https://Vivian-Aniebonam/license", name: "License" },
   ],
   socials: [
-    { icon: <FacebookIcon fontSize="small" />, link: "https://www.facebook.com/CreativeTim/" },
+    { icon: <FacebookIcon fontSize="small" />, link: "https://researchgrips.com/" },
     {
       icon: <TwitterIcon fontSize="small" />,
-      link: "https://twitter.com/creativetim",
+      link: "https://researchgrips.com/",
     },
     {
       icon: <InstagramIcon fontSize="small" />,
-      link: "https://www.instagram.com/creativetimofficial/",
+      link: "https://researchgrips.com/",
     },
     {
       icon: <PinterestIcon fontSize="small" />,
-      link: "https://ro.pinterest.com/thecreativetim/",
+      link: "https://researchgrips.com/",
     },
-    { icon: <GitHubIcon fontSize="small" />, link: "https://github.com/creativetimofficial" },
+    { icon: <GitHubIcon fontSize="small" />, link: "https://researchgrips.com/" },
   ],
   light: false,
 };

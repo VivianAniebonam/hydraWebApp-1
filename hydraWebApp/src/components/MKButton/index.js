@@ -4,7 +4,7 @@
 =========================================================
 
 * Product Page: https://Vivian-Aniebonam/product/soft-ui-dashboard-pro-react
-* Copyright 2023 Creative Tim (https://Vivian-Aniebonam)
+* Copyright 2024 (https://Vivian-Aniebonam)
 
 Coded by Vivian-Aniebonam
 

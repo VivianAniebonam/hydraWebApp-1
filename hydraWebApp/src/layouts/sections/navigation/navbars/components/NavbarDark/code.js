@@ -14,7 +14,7 @@ function NavbarDark() {
         routes={routes}
         action={{
           type: "external",
-          //route: "https://Vivian-Aniebonam/product/material-kit-react",
+          //route: "https://researchgrips.com/",
           label: "Login",
           color: "info",
         }}
