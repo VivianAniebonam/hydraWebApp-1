@@ -15,7 +15,7 @@ Coded by Vivian-Aniebonam
 
 // Sections components
 import BaseLayout from "layouts/sections/components/BaseLayout";
-import  from "layouts/sections/components/View";
+//import  from "layouts/sections/components/View";
 
 // Modals page components
 import SimpleModal from "layouts/sections/attention-catchers/modals/components/SimpleModal";

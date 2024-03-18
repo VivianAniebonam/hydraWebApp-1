@@ -2,177 +2,91 @@
 const bgImage =
   "`${linearGradient(rgba(gradients.dark.main, 0.5), rgba(gradients.dark.state, 0.5))}, url(${bgImage})`";
 
-const headerOneCode = `// @mui material components
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Link from "@mui/material/Link";
-import Stack from "@mui/material/Stack";
+const headerOneCode = `
+/*
+=========================================================
+*  React - v2.1.0
+=========================================================
 
-//  React components
-import MKBox from "components/MKBox";
-import MKButton from "components/MKButton";
+* Product Page: https://researchgrips.com/
+* Copyright 2024 (https://Vivian-Aniebonam)
+
+Coded by Vivian-Aniebonam
+
+ =========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+*/
+
+import React from "react";
+import BaseLayout from "layouts/sections/components/BaseLayout";
+import View from "layouts/sections/components/View";
 import MKTypography from "components/MKTypography";
+import HeaderOne from "layouts/sections/page-sections/page-headers/components/HeaderOne";
 
-// Images
-import bgImage from "assets/images/bg-coworking.jpeg";
-
-function HeaderOne() {
+function PageHeaders() {
   return (
-    <MKBox component="header" position="relative">
-      <MKBox component="nav" position="absolute" top="0.5rem" width="100%">
-        <Container>
-          <Grid container flexDirection="row" alignItems="center">
-            <MKTypography
-              component={Link}
-              href="#"
-              variant="button"
-              color="white"
-              fontWeight="regular"
-              py={0.8125}
-              mr={2}
-            >
-              Material Design
-            </MKTypography>
-            <MKButton
-              variant="outlined"
-              color="white"
-              sx={{ display: { xs: "block", lg: "none" }, ml: "auto" }}
-            >
-              <MKBox component="i" color="white" className="fas fa-bars" />
-            </MKButton>
-            <MKBox
-              component="ul"
-              display={{ xs: "none", lg: "flex" }}
-              p={0}
-              my={0}
-              mx="auto"
-              sx={{ listStyle: "none" }}
-            >
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Home
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  About Us
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  color="white"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Contact Us
-                </MKTypography>
-              </MKBox>
-            </MKBox>
-            <MKBox
-              component="ul"
-              display={{ xs: "none", lg: "flex" }}
-              p={0}
-              m={0}
-              sx={{ listStyle: "none" }}
-            >
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-twitter" />
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-facebook" />
-                </MKTypography>
-              </MKBox>
-              <MKBox component="li">
-                <MKTypography
-                  component={Link}
-                  href="#"
-                  variant="button"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  <MKBox component="i" color="white" className="fab fa-instagram" />
-                </MKTypography>
-              </MKBox>
-            </MKBox>
-          </Grid>
-        </Container>
-      </MKBox>
-      <MKBox
-        display="flex"
-        alignItems="center"
-        minHeight="100vh"
-        sx={{
-          backgroundImage: ({ palette: { gradients }, functions: { linearGradient, rgba } }) => ${bgImage},
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <Container>
-          <Grid container item xs={12} md={7} lg={6} flexDirection="column" justifyContent="center">
-            <MKTypography
-              variant="h1"
-              color="white"
-              mb={3}
-              sx={({ breakpoints, typography: { size } }) => ({
-                [breakpoints.down("md")]: {
-                  fontSize: size["3xl"],
-                },
-              })}
-            >
-              Material Kit
-            </MKTypography>
-            <MKTypography variant="body1" color="white" opacity={0.8} pr={6} mr={6}>
-              The time is now for it be okay to be great. People in this world shun people for being
-              nice.
-            </MKTypography>
-            <Stack direction="row" spacing={1} mt={3}>
-              <MKButton color="white">Get Started</MKButton>
-              <MKButton variant="text" color="white">
-                Read more
-              </MKButton>
-            </Stack>
-          </Grid>
-        </Container>
-      </MKBox>
-    </MKBox>
+    <BaseLayout
+      title="Hydration Insights & Features"
+      breadcrumb={[
+        { label: "Home", route: "/" },
+        { label: "Hydration Insights & Features" },
+      ]}
+    >
+      <View  height="auto">
+        <HeaderOne />
+        <MKTypography variant="body1" component="p" p>     
+        </MKTypography>
+
+        <MKTypography variant="body1" component="p" p>     
+        </MKTypography>
+        <MKTypography variant="body1" component="p" paragraph>
+          Welcome to Hydra, your ultimate hydration companion. Our application leverages cutting-edge technology to ensure you maintain optimal hydration throughout the day. With Hydra, you can track your hydration, receive personalized recommendations, integrate with wearables, and stay motivated with challenges and rewards. Embrace a healthier lifestyle with Hydra - because your hydration matters.
+        </MKTypography>
+        
+        <MKTypography variant="body1" component="p">
+          Staying well-hydrated is crucial for your health and well-being. Here are some tips to help you maintain optimal hydration: Understand your needs, carry water everywhere, eat water-rich foods, set reminders, and monitor your urine. With Hydra, you&apos;re not just tracking water intake; you&apos;re taking a step towards a healthier, more vibrant life. Start your hydration journey today!
+        </MKTypography>
+
+
+        <MKTypography variant="body1" component="p" p>     
+        </MKTypography>
+        <MKTypography variant="body1" component="div" sx={{ marginTop: "20px" }}>
+  <MKTypography variant="h6">The Importance of Staying Hydrated</MKTypography>
+  <ul style={{ listStyleType: "disc", marginLeft: "20px", marginTop: "20px" }}> {/* Inline styles for bullet points */}
+    <li><MKTypography variant="body1">Improves physical performance and endurance.</MKTypography></li>
+    <li><MKTypography variant="body1">Enhances brain function, concentration, and mood.</MKTypography></li>
+    <li><MKTypography variant="body1">Helps to detoxify the body through the elimination of waste.</MKTypography></li>
+    <li><MKTypography variant="body1">Regulates body temperature through sweating and respiration.</MKTypography></li>
+    <li><MKTypography variant="body1">Maintains skin health and vitality, keeping it clear and glowing.</MKTypography></li>
+    <li><MKTypography variant="body1">Prevents and alleviates headaches commonly caused by dehydration.</MKTypography></li>
+  </ul>
+</MKTypography>
+
+<MKTypography variant="body1" component="div" sx={{ marginTop: "20px", marginBottom: "20px" }}>
+  <MKTypography variant="h6">Recommended Water for Drinking &amp; Purification Tips</MKTypography>
+  <MKTypography variant="body1" component="p" paragraph>
+    Ensuring the water you drink is clean and safe is crucial for your health. Here are some recommended types of water for drinking and tips on purifying them:
+  </MKTypography>
+  <ul style={{ listStyleType: "disc", marginLeft: "20px", marginBottom: "20px", marginTop: "20px"  }}>
+    <li><MKTypography variant="body1">Spring Water: Naturally filtered and rich in minerals. Always ensure it&apos;s sourced from a safe, uncontaminated spring.</MKTypography></li>
+    <li><MKTypography variant="body1">Filtered Tap Water: A cost-effective and environmentally friendly option. Use a quality water filter to remove chlorine and other impurities.</MKTypography></li>
+    <li><MKTypography variant="body1">Bottled Water: Convenient but vary in quality. Choose brands that disclose their source and filtration process.</MKTypography></li>
+    <li><MKTypography variant="body1">Alkaline Water: Said to offer health benefits by neutralizing acid in the bloodstream. Ensure it&apos;s from a reliable source.</MKTypography></li>
+    <li><MKTypography variant="body1">Distilled Water: Free from impurities and minerals. Best for those requiring mineral-free water for specific health reasons.</MKTypography></li>
+    <li><MKTypography variant="body1">Purification Methods: Boiling, distillation, reverse osmosis, and carbon filtration are effective methods to purify drinking water at home.</MKTypography></li>
+  </ul>
+  <MKTypography variant="body1" component="p">
+    Remember, the best water for you depends on your local water quality and personal health needs. Regular testing and choosing the right purification method can ensure your drinking water is both safe and enjoyable.
+  </MKTypography>
+</MKTypography>
+
+
+      </View>
+    </BaseLayout>
   );
 }
 
-export default HeaderOne;`;
+export default PageHeaders;`;
 
 export default headerOneCode;

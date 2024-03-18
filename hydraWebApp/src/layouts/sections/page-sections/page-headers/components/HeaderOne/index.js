@@ -25,7 +25,7 @@ import MKButton from "components/MKButton";
 import MKTypography from "components/MKTypography";
 
 // Images
-import bgImage from "assets/images/bg-coworking.jpeg";
+import bgImage from "assets/images/R.jpeg";
 
 function HeaderOne() {
   return (
@@ -42,7 +42,7 @@ function HeaderOne() {
               py={0.8125}
               mr={2}
             >
-              Material Design
+
             </MKTypography>
             <MKButton
               variant="outlined"
@@ -62,7 +62,7 @@ function HeaderOne() {
               <MKBox component="li">
                 <MKTypography
                   component={Link}
-                  href="#"
+                  href="/"
                   variant="button"
                   color="white"
                   fontWeight="regular"
@@ -75,7 +75,7 @@ function HeaderOne() {
               <MKBox component="li">
                 <MKTypography
                   component={Link}
-                  href="#"
+                  href="/pages/landing-pages/about-us"
                   variant="button"
                   color="white"
                   fontWeight="regular"
@@ -88,7 +88,7 @@ function HeaderOne() {
               <MKBox component="li">
                 <MKTypography
                   component={Link}
-                  href="#"
+                  href="pages/landing-pages/contact-us"
                   variant="button"
                   color="white"
                   fontWeight="regular"
@@ -176,8 +176,14 @@ function HeaderOne() {
               nice.
             </MKTypography>
             <Stack direction="row" spacing={1} mt={3}>
-              <MKButton color="white">Get Started</MKButton>
-              <MKButton variant="text" color="white">
+              <MKButton component="a"
+                href="https://drive.google.com/uc?export=download&id=1fuFTMHM3zGHz3X_VOeT-mn2fucjbLcM2"
+                variant="gradient"
+                color="info"
+                size="large"
+                sx={{ mb: 2 }}
+                target="_blank" // Optional: opens the download in a new tab
+              >
                 Read more
               </MKButton>
             </Stack>

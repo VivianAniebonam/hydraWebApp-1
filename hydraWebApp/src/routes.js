@@ -65,7 +65,7 @@ const routes = [
         dropdown: true,
         collapse: [
           {
-            name: "page headers",
+            name: "Water Wisdom",
             route: "/sections/page-sections/Demonstration",
             component: <PageHeaders />,
           },
@@ -90,7 +90,7 @@ const routes = [
       {
         name: "Hydra Mannual",
         description: "All about overview, quick start, and contents",
-        href: "https://Vivian-Aniebonam/learning-lab/react/quick-start/material-kit/",
+        href: "/sections/page-sections/Demonstration",
       },
       
     ],
