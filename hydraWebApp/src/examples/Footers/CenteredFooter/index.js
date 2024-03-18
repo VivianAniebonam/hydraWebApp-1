@@ -112,7 +112,7 @@ CenteredFooter.defaultProps = {
     { href: "/pages/landing-pages/about-us", name: "Team" },
     { href: "https://researchgrips.com/", name: "Products" },
     { href: "https://researchgrips.com/", name: "Blog" },
-    { href: "https://Vivian-Aniebonam/license", name: "License" },
+    { href: "/sections/page-sections/Demonstration", name: "License" },
   ],
   socials: [
     { icon: <FacebookIcon fontSize="small" />, link: "https://researchgrips.com/" },

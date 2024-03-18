@@ -42,8 +42,8 @@ export default {
       items: [
         { name: "about us", href: "/pages/landing-pages/about-us" },
         { name: "freebies"},
-        { name: "premium tools"},
-        { name: "blog" },
+        { name: "premium tools", href: "/sections/page-sections/Demonstration"},
+        { name: "blog", href: "https://researchgrips.com/"},
       ],
     },
     {
@@ -58,8 +58,7 @@ export default {
       name: "help & support",
       items: [
         { name: "contact us", href: "/pages/landing-pages/contact-us" },
-        { name: "knowledge center" },
-        { name: "custom development"},
+        { name: "knowledge center", href: "/sections/page-sections/Demonstration" },
         { name: "FAQ"}
       ],
     },

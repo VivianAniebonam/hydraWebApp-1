@@ -95,7 +95,7 @@ SimpleFooter.defaultProps = {
   company: {  name: "Vivian Aniebonam" },
   links: [
     {  name: "Vivian Aniebonam" },
-    { href: "https://Vivian-Aniebonam/presentation", name: "About Us" },
+    { href: "/pages/landing-pages/about-us", name: "About Us" },
     { href: "https://researchgrips.com", name: "Blog" },
     
   ],
