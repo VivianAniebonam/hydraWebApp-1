@@ -509,4 +509,4 @@ eslint-plugin-prettier                     3.0.1   →    3.1.0
 ### Original Release
 
 - Added Material-UI as base framework
-- Added design from Material Dashboard by Creative Tim
+- Added design from Material Dashboard by Vivian Aniebonam

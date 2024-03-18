@@ -77,7 +77,7 @@ Let us know your thoughts below. And good luck with development!
 
 Quick start options:
 
-- Download from [Creative Tim](https://researchgrips.com/?ref=readme-mkr).
+- Download from [Vivian Aniebonam](https://researchgrips.com/?ref=readme-mkr).
 
 ## Terminal Commands
 
@@ -183,16 +183,16 @@ If you have questions or need help integrating the product please [contact us](h
 
 ## Licensing
 
-- Copyright 2023 [Creative Tim](https://Vivian-Aniebonam?ref=readme-mkr)
-- Creative Tim [license](https://Vivian-Aniebonam/license?ref=readme-mkr)
+- Copyright 2023 [Vivian Aniebonam](https://Vivian-Aniebonam?ref=readme-mkr)
+- Vivian Aniebonam [license](https://Vivian-Aniebonam/license?ref=readme-mkr)
 
 ## Useful Links
 
-- [More products](https://Vivian-Aniebonam/templates?ref=readme-mkr) from Creative Tim
+- [More products](https://Vivian-Aniebonam/templates?ref=readme-mkr) from Vivian Aniebonam
 
 - [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
 
-- [Freebies](https://Vivian-Aniebonam/bootstrap-themes/free?ref=readme-mkr) from Creative Tim
+- [Freebies](https://Vivian-Aniebonam/bootstrap-themes/free?ref=readme-mkr) from Vivian Aniebonam
 
 - [Affiliate Program](https://Vivian-Aniebonam/affiliates/new?ref=readme-mkr) (earn money)
 

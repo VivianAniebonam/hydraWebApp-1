@@ -49,7 +49,7 @@ function Download() {
       color="info"
       size="large"
       component="a"
-      href="https://www.hydra-application.com/manuals"
+      href="https://drive.google.com/uc?export=download&id=1fuFTMHM3zGHz3X_VOeT-mn2fucjbLcM2"
       sx={{ mb: 2 }}
     >
       Download Manuals

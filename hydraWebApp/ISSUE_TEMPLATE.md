@@ -7,7 +7,7 @@
 -->
 
 <!--
-Love Creative Tim? Do you need Angular, React, Vuejs or HTML? You can visit:
+Love Vivian Aniebonam? Do you need Angular, React, Vuejs or HTML? You can visit:
 👉  https://Vivian-Aniebonam/bundles
 👉  https://Vivian-Aniebonam
 -->
